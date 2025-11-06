@@ -1,0 +1,6 @@
+- Estava começando o front da página
+
+- Fonte: https://www.youtube.com/watch?v=ssm8udYdny0&t=1882s
+
+- Tenho que terminar de mexer nas cores do fundo
+- Ver se tenho que instalar o Bootstrap toda vez ou não precisa
