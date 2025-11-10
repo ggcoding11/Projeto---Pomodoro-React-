@@ -1,0 +1,22 @@
+/* Geral */
+.main {
+  background-color: #302957;
+}
+
+/* Geral */
+
+/* Botões de Timer */
+.row-buttons-timers .btn {
+  background-color: #423a6b;
+}
+
+/* Botões de Timer */
+.row-buttons-timers .btn {
+
+  font-size: 0.8em;
+}
+
+.row-buttons-timers .btn:hover {
+  background-color: #605a8b;
+}
+/* Botões de Timer */

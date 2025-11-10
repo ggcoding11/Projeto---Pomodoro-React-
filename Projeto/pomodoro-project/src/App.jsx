@@ -7,17 +7,20 @@ function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <div className="container">
+    <div className="container-fluid vh-100 main">
       <div className="row">
         <div className="col-12 text-center">
-          <h1>Pomodoro Timer</h1>
+          <h1 className="text-white fw-bold">
+            <span>⏰</span>
+            Pomodoro Timer
+          </h1>
         </div>
       </div>
-      <div className="row">
+      <div className="row row-buttons-timers mt-2">
         <div className="col-12 d-flex justify-content-center gap-2">
-          <button>Pomodoro</button>
-          <button>Short Break</button>
-          <button>Long Break</button>
+          <button className="btn text-white fw-semibold">Pomodoro</button>
+          <button className="btn text-white fw-semibold">Short Break</button>
+          <button className="btn text-white fw-semibold">Long Break</button>
         </div>
       </div>
       <div className="row">
