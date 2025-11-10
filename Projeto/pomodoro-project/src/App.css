@@ -20,3 +20,19 @@
   background-color: #605a8b;
 }
 /* Botões de Timer */
+
+/* Timer */
+.container-timer {
+  height: 250px;
+  width: 250px;
+  border-radius: 50%;
+  background-color: #1c173b;
+  box-shadow: black 1px 1px 40px;
+}
+
+.container-timer .timer {
+  font-size: 3.5em;
+  
+}
+
+/* Timer */

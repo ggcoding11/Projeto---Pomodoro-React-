@@ -23,14 +23,14 @@ function App() {
           <button className="btn text-white fw-semibold">Long Break</button>
         </div>
       </div>
-      <div className="row">
+      <div className="row mt-4">
         <div className="col-12 d-flex justify-content-center">
-          <div className="container-timer">
-            <span className="timer">25:00</span>
+          <div className="container-timer d-flex justify-content-center align-items-center">
+            <span className="timer text-center text-white fw-bold">25:00</span>
           </div>
         </div>
       </div>
-      <div className="row">
+      <div className="row mt-4">
         <div className="col-12 d-flex justify-content-center gap-2">
           <button>START</button>
           <button>STOP</button>
