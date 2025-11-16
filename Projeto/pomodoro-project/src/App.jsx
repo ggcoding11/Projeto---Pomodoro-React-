@@ -2,29 +2,67 @@ import { useEffect, useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
+import { use } from "react";
 
 function App() {
-  //const [count, setCount] = useState(0);
+  const tempoCicloPomodoro = 0.1;
+  const tempoPausaCurta = 5;
 
-  const [estaLigado, setEstaLigado] = useState(false);
-  const [stateBotaoStartStop, setStateBotaoStartStop] = useState("START");
-  const [tempoRestante, setTempoRestante] = useState(25 * 60);
+  const [estaLigadoTimer, setEstaLigadoTimer] = useState(false);
+  const [nomeBotao, setNomeBotao] = useState("START");
+  const [segundosRestante, setSegundosRestante] = useState(
+    tempoCicloPomodoro * 60
+  );
+  const [tempoFormatoPomodoro, setTempoFormatoPomodoro] = useState(
+    String(tempoCicloPomodoro) + ":00"
+  );
+
+  const [estaEmPausaCurta, setEstaEmPausaCurta] = useState(false);
 
   const clicarBotaoStartStop = () => {
-    setEstaLigado(!estaLigado);
+    setEstaLigadoTimer(!estaLigadoTimer);
   };
 
-  useEffect(() => {
-    if (estaLigado == true) {
-      setStateBotaoStartStop("STOP");
+  let timer;
 
-      setInterval(() => {
-        setTempoRestante((tempoRestante) => tempoRestante - 1);
+  useEffect(() => {
+    console.log("O estado estaLigado mudou para:", estaLigadoTimer);
+
+    if (estaLigadoTimer == true) {
+      setNomeBotao("STOP");
+
+      timer = setInterval(() => {
+        setSegundosRestante((segundosRestante) => segundosRestante - 1);
       }, 1000);
     } else {
-      setStateBotaoStartStop("START");
+      setNomeBotao("START");
     }
-  }, [estaLigado]);
+
+    return () => {
+      clearInterval(timer);
+      console.log("Intervalo limpo");
+    };
+  }, [estaLigadoTimer]);
+
+  useEffect(() => {
+    if (segundosRestante == 0) {
+      setEstaLigadoTimer(false);
+      setEstaEmPausaCurta(true);
+    }
+
+    setTempoFormatoPomodoro(
+      String(Math.floor(segundosRestante / 60)).padStart(2, "0") +
+        ":" +
+        String(segundosRestante % 60).padStart(2, "0")
+    );
+  }, [segundosRestante]);
+
+  useEffect(() => {
+    if (estaEmPausaCurta == true) {
+      console.log("Iniciando pausa curta");
+      setTempoFormatoPomodoro(String(tempoPausaCurta) + ":00");
+    }
+  }, [estaEmPausaCurta]);
 
   return (
     <div className="container-fluid vh-100 py-4 main">
@@ -47,7 +85,7 @@ function App() {
         <div className="col-12 d-flex justify-content-center">
           <div className="container-timer d-flex justify-content-center align-items-center">
             <span className="text-center text-white fw-bold" id="timer">
-              {tempoRestante}
+              {tempoFormatoPomodoro}
             </span>
           </div>
         </div>
@@ -59,7 +97,7 @@ function App() {
             className="btn text-white fw-semibold"
             id="start-stop"
           >
-            {stateBotaoStartStop}
+            {nomeBotao}
           </button>
         </div>
       </div>
