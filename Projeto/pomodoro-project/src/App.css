@@ -6,17 +6,17 @@
 /* Geral */
 
 /* Botões de Timer */
-.row-buttons-timers .btn {
+.row-buttons .btn {
   background-color: #423a6b;
 }
 
 /* Botões de Timer */
-.row-buttons-timers .btn {
+.row-buttons.btn {
 
   font-size: 0.8em;
 }
 
-.row-buttons-timers .btn:hover {
+.row-buttons .btn:hover {
   background-color: #605a8b;
 }
 /* Botões de Timer */
@@ -30,9 +30,8 @@
   box-shadow: black 1px 1px 40px;
 }
 
-.container-timer .timer {
+.container-timer #timer {
   font-size: 3.5em;
-  
 }
 
 /* Timer */
